@@ -22,4 +22,6 @@ for root, dirs, file_names in os.walk(path_to_images):
         #Extract text from image
         text = pytesseract.image_to_string(img)
 
-        print(text)
+        print(text) 
+
+        # teste de commit
