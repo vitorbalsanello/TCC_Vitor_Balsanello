@@ -2,10 +2,10 @@ from PIL import Image
 from pytesseract import pytesseract
 
 #Define path to tessaract.exe
-path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+path_to_tesseract = r'C:\\Users\\admin\\Desktop\\tesseract\\tesseract.exe'
 
 #Define path to image
-path_to_image = 'C:\Users\admin\Desktop\imagens_extracao\sample_image_2.jpg'
+path_to_image = 'C:\\Users\\admin\\Desktop\\TCC\\extracao_de_texto\\imagens_extracao\\image_3.jpg'
 
 #Point tessaract_cmd to tessaract.exe
 pytesseract.tesseract_cmd = path_to_tesseract

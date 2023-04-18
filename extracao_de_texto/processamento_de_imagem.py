@@ -1,4 +1,3 @@
-
 from PIL import Image
 from pytesseract import pytesseract
 import os
@@ -7,7 +6,7 @@ import os
 path_to_tesseract = r'C:\\Users\\admin\\Desktop\\tesseract\\tesseract.exe'
 
 #Define path to images folder
-path_to_images = r'C:\\Users\\admin\\Desktop\\imagens_extracao\\'
+path_to_images = r'C:\\Users\\admin\\Desktop\\TCC\\extracao_de_texto\\imagens_extracao\\'
 
 #Point tessaract_cmd to tessaract.exe
 pytesseract.tesseract_cmd = path_to_tesseract
@@ -23,5 +22,3 @@ for root, dirs, file_names in os.walk(path_to_images):
         text = pytesseract.image_to_string(img)
 
         print(text) 
-
-        # teste de commit
