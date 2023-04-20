@@ -1,7 +1,10 @@
-import cv2
+import re
+import cv2 
 import numpy as np
+import pytesseract
+from pytesseract import Output
+from matplotlib import pyplot as plt
 
-img = cv2.imread('image.jpg')
 
 # get grayscale image
 def get_grayscale(image):
@@ -38,7 +41,7 @@ def canny(image):
 def deskew(image):
     coords = np.column_stack(np.where(image > 0))
     angle = cv2.minAreaRect(coords)[-1]
-     if angle < -45:
+    if angle < -45:
         angle = -(90 + angle)
     else:
         angle = -angle
@@ -51,3 +54,10 @@ def deskew(image):
 #template matching
 def match_template(image, template):
     return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED) 
+
+image = cv2.imread('image_6.jpg')
+b,g,r = cv2.split(image)
+rgb_img = cv2.merge([r,g,b])
+plt.imshow(rgb_img)
+plt.title('AUREBESH ORIGINAL IMAGE')
+plt.show()
