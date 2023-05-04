@@ -55,9 +55,32 @@ def deskew(image):
 def match_template(image, template):
     return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED) 
 
-image = cv2.imread('image_6.jpg')
+
+image = cv2.imread('C:\\Users\\admin\\Desktop\\TCC\\extracao_de_texto\\imagens_extracao\\image_10.jpg')
 b,g,r = cv2.split(image)
 rgb_img = cv2.merge([r,g,b])
 plt.imshow(rgb_img)
 plt.title('AUREBESH ORIGINAL IMAGE')
-plt.show()
+
+gray = get_grayscale(image)
+thresh = thresholding(gray)
+opening = opening(gray)
+canny = canny(gray)
+images = {'gray': gray, 
+          'thresh': thresh, 
+          'opening': opening, 
+          'canny': canny}
+
+fig = plt.figure(figsize=(13,13))
+ax = []
+
+rows = 2
+columns = 2
+keys = list(images.keys())
+for i in range(rows*columns):
+    ax.append( fig.add_subplot(rows, columns, i+1) )
+    ax[-1].set_title('AUREBESH - ' + keys[i]) 
+    plt.imshow(images[keys[i]], cmap='gray')   
+
+
+print("RETURN IMG")
